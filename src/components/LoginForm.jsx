@@ -50,6 +50,9 @@ const LoginForm = () => {
           />
         </div>
         <button type="submit">Login</button>
+        <link to='/register'>
+          <button>Register</button>
+        </link>
       </form>
     </div>
   );

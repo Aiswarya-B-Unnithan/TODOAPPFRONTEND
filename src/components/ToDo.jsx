@@ -26,13 +26,14 @@ const ToDo = () => {
           userId: userId,
         },
       };
+      
       const response = await axios.get(
         "https://todoappbackend-3och.onrender.com/get",
         config
       );
       const formattedTodos = response.data.map((todo) => ({
         ...todo,
-        formattedCreatedAt: formatCreatedAt(todo.createdAt), // Format the creation time
+        formattedCreatedAt: formatCreatedAt(todo.createdAt), 
       }));
       setToDos(formattedTodos);
     } catch (error) {
@@ -69,7 +70,11 @@ const ToDo = () => {
       },
     };
     axios
-      .post(`${baseURL}/save`, { toDo: input, createdAt: Date.now() }, config)
+      .post(
+        "https://todoappbackend-3och.onrender.com/save",
+        { toDo: input, createdAt: Date.now() },
+        config
+      )
       .then((res) => {
         setInput("");
         fetchToDos();
@@ -79,7 +84,7 @@ const ToDo = () => {
 
   const deleteToDo = (id) => {
     axios
-      .delete(`${baseURL}/delete/${id}`)
+      .delete("https://todoappbackend-3och.onrender.com/delete/${id}")
       .then((res) => {
         console.log(res.data);
         fetchToDos(); // Refresh the todos after deletion
@@ -89,7 +94,9 @@ const ToDo = () => {
 
   const updateToDo = (id, newText) => {
     axios
-      .put(`${baseURL}/update/${id}`, { toDo: newText })
+      .put("https://todoappbackend-3och.onrender.com/update/${id}", {
+        toDo: newText,
+      })
       .then((res) => {
         console.log(res.data);
         fetchToDos();
@@ -99,7 +106,9 @@ const ToDo = () => {
 
   const toggleCompleted = (id, completed) => {
     axios
-      .put(`${baseURL}/update/${id}`, { completed: !completed })
+      .put("https://todoappbackend-3och.onrender.com/update/${id}", {
+        completed: !completed,
+      })
       .then((res) => {
         fetchToDos();
       })
