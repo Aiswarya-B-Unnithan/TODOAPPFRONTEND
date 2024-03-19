@@ -16,7 +16,7 @@ const LoginForm = () => {
           password,
         }
       );
-      console.log(response);
+      console.log(response)
       localStorage.setItem("userId", response.data?.user?._id);
       localStorage.setItem("token", response.data.token);
       navigate("/");
@@ -50,9 +50,6 @@ const LoginForm = () => {
           />
         </div>
         <button type="submit">Login</button>
-        <link to="/register">
-          <button>Register</button>
-        </link>
       </form>
     </div>
   );
