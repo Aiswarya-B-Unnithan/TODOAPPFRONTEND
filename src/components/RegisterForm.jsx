@@ -31,11 +31,14 @@ const RegistrationForm = ({ onRegister }) => {
     }
 
     try {
-      const response = await axios.post(`${baseURL}/register`, {
-        name,
-        email,
-        password,
-      });
+      const response = await axios.post(
+        "https://todoappbackend-3och.onrender.com/register",
+        {
+          name,
+          email,
+          password,
+        }
+      );
       navigate("/login");
     } catch (err) {
       console.log(err);
