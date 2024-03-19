@@ -26,7 +26,10 @@ const ToDo = () => {
           userId: userId,
         },
       };
-      const response = await axios.get(`${baseURL}/get`, config);
+      const response = await axios.get(
+        "https://todoappbackend-3och.onrender.com/get",
+        config
+      );
       const formattedTodos = response.data.map((todo) => ({
         ...todo,
         formattedCreatedAt: formatCreatedAt(todo.createdAt), // Format the creation time
