@@ -94,7 +94,7 @@ const ToDo = () => {
 
   const updateToDo = (id, newText) => {
     axios
-      .put("https://todoappbackend-3och.onrender.com/update/${id}", {
+      .put(`https://todoappbackend-3och.onrender.com/update/${id}`, {
         toDo: newText,
       })
       .then((res) => {
@@ -106,7 +106,7 @@ const ToDo = () => {
 
   const toggleCompleted = (id, completed) => {
     axios
-      .put("https://todoappbackend-3och.onrender.com/update/${id}", {
+      .put(`https://todoappbackend-3och.onrender.com/update/${id}`, {
         completed: !completed,
       })
       .then((res) => {
